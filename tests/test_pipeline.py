@@ -174,6 +174,36 @@ class ProfilingTests(unittest.TestCase):
             r=profile(inputs,root/'profile',sample=2,hash_all=True)
             self.assertEqual(r['pdf_count'],2); self.assertEqual(r['duplicate_extra_files'],1)
             self.assertEqual(r['hash_coverage_files'],2); self.assertEqual(r['sample_categories'][0]['category'],'text_present')
+    def test_sample_budget_follows_bytes_not_files(self):
+        from pdf_text_pipeline.profile import allocate
+        counts={'<1 MiB':10000,'>=1024 MiB':20}
+        byte_totals={'<1 MiB':5_000_000_000,'>=1024 MiB':30_000_000_000}
+        plan=allocate(counts,byte_totals,budget=60,min_bin_sample=5)
+        self.assertGreater(plan['>=1024 MiB'],plan['<1 MiB'])
+        self.assertLessEqual(plan['>=1024 MiB'],counts['>=1024 MiB'])
+    def test_stratified_estimate_uses_census_bin_bytes(self):
+        from pdf_text_pipeline.profile import stratified_estimates
+        counts={'<1 MiB':10000,'>=1024 MiB':20}
+        byte_totals={'<1 MiB':5_000_000_000,'>=1024 MiB':30_000_000_000}
+        per_bin={'<1 MiB':[('text_present',500_000)]*8,
+                 '>=1024 MiB':[('low_text_image_candidate',1_500_000_000)]*20}
+        est={e['category']:e for e in stratified_estimates(per_bin,byte_totals,counts)}
+        # the heavy bin is censused: its contribution is exact and carries no interval
+        self.assertEqual(est['low_text_image_candidate']['estimated_bytes'],30_000_000_000)
+        self.assertEqual(est['low_text_image_candidate']['ci95_bytes'],0)
+        self.assertEqual(est['text_present']['estimated_bytes'],5_000_000_000)
+    def test_duplicates_report_not_measured_without_hashing(self):
+        from pdf_text_pipeline.profile import profile
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t); inputs=root/'pdfs'; inputs.mkdir()
+            make_pdf(inputs/'a.pdf',['This sufficiently long scientific document contains searchable text and reliable page provenance.'])
+            r=profile(inputs,root/'profile',sample=2)
+            self.assertFalse(r['duplicates_measured']); self.assertIsNone(r['duplicate_extra_files'])
+            self.assertIn('not measured',(root/'profile'/'profile.md').read_text())
+    def test_page_plan_grows_with_length(self):
+        from pdf_text_pipeline.profile import page_plan
+        self.assertEqual(page_plan(10,3),3); self.assertGreater(page_plan(300,3),3)
+        self.assertLessEqual(page_plan(5000,3),16)
     def test_attested_dehyphenation(self):
         md,_,_,_=prepare(['Learning supports learn-\ning in this document.'],'abc','p',Config())
         self.assertIn('supports learning',md)
