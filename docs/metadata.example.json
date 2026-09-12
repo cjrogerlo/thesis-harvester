@@ -1,0 +1,15 @@
+{
+  "source_url": "https://repository.example.edu/items/record-id",
+  "repository": "example-university",
+  "source_identifier": "oai:repository.example.edu:record-id",
+  "title": "Example thesis title",
+  "authors": ["Example Author"],
+  "year": "2026",
+  "doi": null,
+  "language": "en",
+  "license": "unknown",
+  "license_url": null,
+  "rights": [],
+  "rights_uri": [],
+  "license_evidence": null
+}

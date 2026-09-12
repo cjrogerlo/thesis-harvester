@@ -1,0 +1,956 @@
+{
+ "_comment": "University repository registry. Each entry lists candidate OAI-PMH endpoints (probed in order) and optional DSpace/EPrints REST bases. The prober picks whichever answers.",
+ "repositories": [
+  {
+   "id": "mit",
+   "name": "MIT",
+   "repo": "DSpace@MIT",
+   "country": "US",
+   "software": "dspace7",
+   "oai": [
+    "https://dspace.mit.edu/server/oai/request",
+    "https://dspace.mit.edu/oai/request"
+   ],
+   "rest": [
+    "https://dspace.mit.edu/server/api"
+   ],
+   "nobel": 83
+  },
+  {
+   "id": "caltech",
+   "name": "Caltech",
+   "repo": "CaltechTHESIS",
+   "country": "US",
+   "software": "eprints-or-invenio",
+   "oai": [
+    "https://thesis.library.caltech.edu/cgi/oai2"
+   ],
+   "rest": [
+    "https://thesis.caltech.edu/api/records",
+    "https://feeds.library.caltech.edu"
+   ],
+   "nobel": 33
+  },
+  {
+   "id": "ethz",
+   "name": "ETH Zurich",
+   "repo": "ETH Research Collection",
+   "country": "CH",
+   "software": "dspace-cris",
+   "oai": [
+    "https://www.research-collection.ethz.ch/server/oai/request",
+    "https://www.research-collection.ethz.ch/oai/request"
+   ],
+   "rest": [
+    "https://www.research-collection.ethz.ch/server/api"
+   ],
+   "nobel": 31
+  },
+  {
+   "id": "epfl",
+   "name": "EPFL",
+   "repo": "Infoscience",
+   "country": "CH",
+   "software": "invenio",
+   "oai": [
+    "https://infoscience.epfl.ch/oai2d",
+    "https://infoscience.epfl.ch/oai"
+   ],
+   "rest": [],
+   "nobel": 4
+  },
+  {
+   "id": "stanford",
+   "name": "Stanford",
+   "repo": "Stanford Digital Repository",
+   "country": "US",
+   "software": "unknown",
+   "oai": [
+    "https://purl.stanford.edu/oai",
+    "https://sdr.stanford.edu/oai",
+    "https://searchworks.stanford.edu/oai"
+   ],
+   "rest": [],
+   "nobel": 58
+  },
+  {
+   "id": "harvard",
+   "name": "Harvard",
+   "repo": "DASH",
+   "country": "US",
+   "software": "dspace",
+   "oai": [
+    "https://dash.harvard.edu/server/oai/request",
+    "https://dash.harvard.edu/oai/request"
+   ],
+   "rest": [],
+   "nobel": 151
+  },
+  {
+   "id": "berkeley",
+   "name": "UC (Berkeley et al.)",
+   "repo": "eScholarship",
+   "country": "US",
+   "software": "custom",
+   "oai": [
+    "https://escholarship.org/oai"
+   ],
+   "rest": [],
+   "nobel": 69
+  },
+  {
+   "id": "princeton",
+   "name": "Princeton",
+   "repo": "DataSpace",
+   "country": "US",
+   "software": "dspace",
+   "oai": [
+    "https://dataspace.princeton.edu/oai/request",
+    "https://datacommons.princeton.edu/oai"
+   ],
+   "rest": [],
+   "nobel": 37
+  },
+  {
+   "id": "cmu",
+   "name": "Carnegie Mellon",
+   "repo": "KiltHub",
+   "country": "US",
+   "software": "figshare",
+   "oai": [
+    "https://kilthub.cmu.edu/oai",
+    "https://api.figshare.com/v2/oai"
+   ],
+   "rest": [],
+   "nobel": 21
+  },
+  {
+   "id": "cornell",
+   "name": "Cornell",
+   "repo": "eCommons",
+   "country": "US",
+   "software": "dspace7",
+   "oai": [
+    "https://ecommons.cornell.edu/server/oai/request",
+    "https://ecommons.cornell.edu/oai/request"
+   ],
+   "rest": [],
+   "nobel": 43
+  },
+  {
+   "id": "umich",
+   "name": "Michigan",
+   "repo": "Deep Blue",
+   "country": "US",
+   "software": "dspace",
+   "oai": [
+    "https://deepblue.lib.umich.edu/oai/request",
+    "https://deepblue.lib.umich.edu/server/oai/request"
+   ],
+   "rest": [],
+   "nobel": 20
+  },
+  {
+   "id": "columbia",
+   "name": "Columbia",
+   "repo": "Academic Commons",
+   "country": "US",
+   "software": "custom",
+   "oai": [
+    "https://academiccommons.columbia.edu/oai"
+   ],
+   "rest": [],
+   "nobel": 101
+  },
+  {
+   "id": "utexas",
+   "name": "UT Austin",
+   "repo": "Texas ScholarWorks",
+   "country": "US",
+   "software": "dspace7",
+   "oai": [
+    "https://repositories.lib.utexas.edu/server/oai/request",
+    "https://repositories.lib.utexas.edu/oai/request"
+   ],
+   "rest": [],
+   "nobel": 13
+  },
+  {
+   "id": "uchicago",
+   "name": "Chicago",
+   "repo": "Knowledge@UChicago",
+   "country": "US",
+   "software": "dspace7",
+   "oai": [
+    "https://knowledge.uchicago.edu/server/oai/request",
+    "https://knowledge.uchicago.edu/oai/request"
+   ],
+   "rest": [],
+   "nobel": 89
+  },
+  {
+   "id": "oxford",
+   "name": "Oxford",
+   "repo": "ORA",
+   "country": "UK",
+   "software": "custom",
+   "oai": [
+    "https://ora.ox.ac.uk/oai2d",
+    "https://ora.ox.ac.uk/oai"
+   ],
+   "rest": [],
+   "nobel": 58
+  },
+  {
+   "id": "imperial",
+   "name": "Imperial College London",
+   "repo": "Spiral",
+   "country": "UK",
+   "software": "dspace7",
+   "oai": [
+    "https://spiral.imperial.ac.uk/server/oai/request",
+    "https://spiral.imperial.ac.uk/oai/request"
+   ],
+   "rest": [],
+   "nobel": 16
+  },
+  {
+   "id": "ucl",
+   "name": "UCL",
+   "repo": "UCL Discovery",
+   "country": "UK",
+   "software": "eprints",
+   "oai": [
+    "https://discovery.ucl.ac.uk/cgi/oai2"
+   ],
+   "rest": [],
+   "nobel": 27
+  },
+  {
+   "id": "edinburgh",
+   "name": "Edinburgh",
+   "repo": "ERA",
+   "country": "UK",
+   "software": "dspace7",
+   "oai": [
+    "https://era.ed.ac.uk/server/oai/request",
+    "https://era.ed.ac.uk/oai/request"
+   ],
+   "rest": [],
+   "nobel": 18
+  },
+  {
+   "id": "manchester",
+   "name": "Manchester",
+   "repo": "Research Explorer",
+   "country": "UK",
+   "software": "pure",
+   "oai": [
+    "https://research.manchester.ac.uk/ws/oai"
+   ],
+   "rest": [],
+   "nobel": 25
+  },
+  {
+   "id": "tudelft",
+   "name": "TU Delft",
+   "repo": "TU Delft Repository",
+   "country": "NL",
+   "software": "custom",
+   "oai": [
+    "https://repository.tudelft.nl/oai",
+    "https://research.tudelft.nl/ws/oai",
+    "https://pure.tudelft.nl/ws/oai"
+   ],
+   "rest": [],
+   "nobel": 3
+  },
+  {
+   "id": "kit",
+   "name": "KIT",
+   "repo": "KITopen",
+   "country": "DE",
+   "software": "custom",
+   "oai": [
+    "https://publikationen.bibliothek.kit.edu/oai"
+   ],
+   "rest": [],
+   "nobel": 7
+  },
+  {
+   "id": "tum",
+   "name": "TU Munich",
+   "repo": "mediaTUM",
+   "country": "DE",
+   "software": "custom",
+   "oai": [
+    "https://mediatum.ub.tum.de/oai2",
+    "https://mediatum.ub.tum.de/oai/oai2"
+   ],
+   "rest": [],
+   "nobel": 20
+  },
+  {
+   "id": "dtu",
+   "name": "DTU",
+   "repo": "DTU Orbit",
+   "country": "DK",
+   "software": "pure",
+   "oai": [
+    "https://orbit.dtu.dk/ws/oai"
+   ],
+   "rest": [],
+   "nobel": 4
+  },
+  {
+   "id": "kth",
+   "name": "KTH",
+   "repo": "DiVA",
+   "country": "SE",
+   "software": "diva",
+   "oai": [
+    "https://kth.diva-portal.org/dice/oai"
+   ],
+   "rest": [],
+   "nobel": 5
+  },
+  {
+   "id": "kuleuven",
+   "name": "KU Leuven",
+   "repo": "Lirias",
+   "country": "BE",
+   "software": "custom",
+   "oai": [
+    "https://lirias.kuleuven.be/oai"
+   ],
+   "rest": [],
+   "nobel": 5
+  },
+  {
+   "id": "utokyo",
+   "name": "University of Tokyo",
+   "repo": "UTokyo Repository",
+   "country": "JP",
+   "software": "weko",
+   "oai": [
+    "https://repository.dl.itc.u-tokyo.ac.jp/oai"
+   ],
+   "rest": [],
+   "nobel": 11
+  },
+  {
+   "id": "kyoto",
+   "name": "Kyoto University",
+   "repo": "KURENAI",
+   "country": "JP",
+   "software": "dspace",
+   "oai": [
+    "https://repository.kulib.kyoto-u.ac.jp/server/oai/request",
+    "https://repository.kulib.kyoto-u.ac.jp/oai/request"
+   ],
+   "rest": [],
+   "nobel": 11
+  },
+  {
+   "id": "nus",
+   "name": "NUS",
+   "repo": "ScholarBank@NUS",
+   "country": "SG",
+   "software": "dspace",
+   "oai": [
+    "https://scholarbank.nus.edu.sg/oai/request",
+    "https://scholarbank.nus.edu.sg/server/oai/request"
+   ],
+   "rest": [],
+   "nobel": 0
+  },
+  {
+   "id": "ntu_sg",
+   "name": "NTU Singapore",
+   "repo": "DR-NTU",
+   "country": "SG",
+   "software": "dspace",
+   "oai": [
+    "https://dr.ntu.edu.sg/oai/request",
+    "https://dr.ntu.edu.sg/server/oai/request"
+   ],
+   "rest": [],
+   "nobel": 0
+  },
+  {
+   "id": "kaist",
+   "name": "KAIST",
+   "repo": "KOASAS",
+   "country": "KR",
+   "software": "dspace",
+   "oai": [
+    "https://koasas.kaist.ac.kr/oai/request"
+   ],
+   "rest": [],
+   "nobel": 0
+  },
+  {
+   "id": "ntu_tw",
+   "name": "National Taiwan University",
+   "repo": "NTU Scholars / TDR",
+   "country": "TW",
+   "software": "dspace",
+   "oai": [
+    "https://scholars.lib.ntu.edu.tw/server/oai/request"
+   ],
+   "rest": [],
+   "nobel": 1
+  },
+  {
+   "id": "toronto",
+   "name": "Toronto",
+   "repo": "TSpace",
+   "country": "CA",
+   "software": "dspace7",
+   "oai": [
+    "https://tspace.library.utoronto.ca/server/oai/request",
+    "https://tspace.library.utoronto.ca/oai/request"
+   ],
+   "rest": [],
+   "nobel": 10
+  },
+  {
+   "id": "ubc",
+   "name": "UBC",
+   "repo": "cIRcle / Open Collections",
+   "country": "CA",
+   "software": "custom",
+   "oai": [
+    "https://oai.open.library.ubc.ca/oai"
+   ],
+   "rest": [],
+   "nobel": 8
+  },
+  {
+   "id": "anu",
+   "name": "ANU",
+   "repo": "ANU Open Research",
+   "country": "AU",
+   "software": "dspace7",
+   "oai": [
+    "https://openresearch-repository.anu.edu.au/server/oai/request",
+    "https://openresearch-repository.anu.edu.au/oai/request"
+   ],
+   "rest": [],
+   "nobel": 6
+  },
+  {
+   "id": "melbourne",
+   "name": "Melbourne",
+   "repo": "Minerva Access",
+   "country": "AU",
+   "software": "dspace7",
+   "oai": [
+    "https://minerva-access.unimelb.edu.au/server/oai/request",
+    "https://minerva-access.unimelb.edu.au/oai/request"
+   ],
+   "rest": [],
+   "nobel": 9
+  },
+  {
+   "id": "yale",
+   "name": "Yale",
+   "repo": "EliScholar",
+   "country": "US",
+   "software": "digitalcommons",
+   "nobel": 52,
+   "oai": [
+    "https://elischolar.library.yale.edu/do/oai/"
+   ],
+   "rest": []
+  },
+  {
+   "id": "jhu",
+   "name": "Johns Hopkins",
+   "repo": "JScholarship",
+   "country": "US",
+   "software": "dspace",
+   "nobel": 36,
+   "oai": [
+    "https://jscholarship.library.jhu.edu/server/oai/request",
+    "https://jscholarship.library.jhu.edu/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "nyu",
+   "name": "New York University",
+   "repo": "Faculty Digital Archive",
+   "country": "US",
+   "software": "dspace",
+   "nobel": 35,
+   "oai": [
+    "https://archive.nyu.edu/oai/request",
+    "https://archive.nyu.edu/server/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "penn",
+   "name": "Pennsylvania",
+   "repo": "ScholarlyCommons",
+   "country": "US",
+   "software": "digitalcommons",
+   "nobel": 29,
+   "oai": [
+    "https://repository.upenn.edu/do/oai/"
+   ],
+   "rest": []
+  },
+  {
+   "id": "rockefeller",
+   "name": "Rockefeller University",
+   "repo": "Rockefeller Digital Commons",
+   "country": "US",
+   "software": "digitalcommons",
+   "nobel": 24,
+   "oai": [
+    "https://digitalcommons.rockefeller.edu/do/oai/"
+   ],
+   "rest": []
+  },
+  {
+   "id": "illinois",
+   "name": "Illinois Urbana-Champaign",
+   "repo": "IDEALS",
+   "country": "US",
+   "software": "dspace",
+   "nobel": 24,
+   "oai": [
+    "https://www.ideals.illinois.edu/server/oai/request",
+    "https://www.ideals.illinois.edu/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "minnesota",
+   "name": "Minnesota",
+   "repo": "UMN Digital Conservancy",
+   "country": "US",
+   "software": "dspace",
+   "nobel": 23,
+   "oai": [
+    "https://conservancy.umn.edu/server/oai/request",
+    "https://conservancy.umn.edu/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "washu",
+   "name": "Washington University in St. Louis",
+   "repo": "Open Scholarship",
+   "country": "US",
+   "software": "digitalcommons",
+   "nobel": 22,
+   "oai": [
+    "https://openscholarship.wustl.edu/do/oai/"
+   ],
+   "rest": []
+  },
+  {
+   "id": "wisconsin",
+   "name": "Wisconsin-Madison",
+   "repo": "MINDS@UW",
+   "country": "US",
+   "software": "dspace",
+   "nobel": 19,
+   "oai": [
+    "https://minds.wisconsin.edu/oai/request",
+    "https://search.library.wisc.edu/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "ohiolink",
+   "name": "OhioLINK (incl. Case Western)",
+   "repo": "OhioLINK ETD Center",
+   "country": "US",
+   "software": "custom",
+   "nobel": 16,
+   "oai": [
+    "https://etd.ohiolink.edu/oai2",
+    "https://etd.ohiolink.edu/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "duke",
+   "name": "Duke",
+   "repo": "DukeSpace",
+   "country": "US",
+   "software": "dspace",
+   "nobel": 12,
+   "oai": [
+    "https://dukespace.lib.duke.edu/server/oai/request",
+    "https://dukespace.lib.duke.edu/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "uwashington",
+   "name": "Washington (Seattle)",
+   "repo": "ResearchWorks",
+   "country": "US",
+   "software": "dspace",
+   "nobel": 12,
+   "oai": [
+    "https://digital.lib.washington.edu/server/oai/request",
+    "https://digital.lib.washington.edu/researchworks/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "cuny",
+   "name": "CUNY",
+   "repo": "CUNY Academic Works",
+   "country": "US",
+   "software": "digitalcommons",
+   "nobel": 13,
+   "oai": [
+    "https://academicworks.cuny.edu/do/oai/"
+   ],
+   "rest": []
+  },
+  {
+   "id": "lse",
+   "name": "LSE",
+   "repo": "LSE Theses Online",
+   "country": "UK",
+   "software": "eprints",
+   "nobel": 17,
+   "oai": [
+    "https://etheses.lse.ac.uk/cgi/oai2"
+   ],
+   "rest": []
+  },
+  {
+   "id": "kcl",
+   "name": "King's College London",
+   "repo": "King's Research Portal",
+   "country": "UK",
+   "software": "pure",
+   "nobel": 12,
+   "oai": [
+    "https://kclpure.kcl.ac.uk/ws/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "goettingen",
+   "name": "Göttingen",
+   "repo": "eDiss",
+   "country": "DE",
+   "software": "dspace",
+   "nobel": 46,
+   "oai": [
+    "https://ediss.uni-goettingen.de/server/oai/request",
+    "https://ediss.uni-goettingen.de/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "heidelberg",
+   "name": "Heidelberg",
+   "repo": "HeiDOK",
+   "country": "DE",
+   "software": "custom",
+   "nobel": 41,
+   "oai": [
+    "https://archiv.ub.uni-heidelberg.de/volltextserver/cgi/oai2"
+   ],
+   "rest": []
+  },
+  {
+   "id": "humboldt",
+   "name": "Humboldt Berlin",
+   "repo": "edoc-Server",
+   "country": "DE",
+   "software": "dspace",
+   "nobel": 40,
+   "oai": [
+    "https://edoc.hu-berlin.de/oai/request",
+    "https://edoc.hu-berlin.de/server/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "lmu",
+   "name": "LMU Munich",
+   "repo": "Open Access LMU / edoc",
+   "country": "DE",
+   "software": "eprints",
+   "nobel": 35,
+   "oai": [
+    "https://edoc.ub.uni-muenchen.de/cgi/oai2"
+   ],
+   "rest": []
+  },
+  {
+   "id": "freiburg",
+   "name": "Freiburg",
+   "repo": "FreiDok plus",
+   "country": "DE",
+   "software": "custom",
+   "nobel": 19,
+   "oai": [
+    "https://freidok.uni-freiburg.de/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "frankfurt",
+   "name": "Goethe Frankfurt",
+   "repo": "Publikationen UB Frankfurt",
+   "country": "DE",
+   "software": "custom",
+   "nobel": 14,
+   "oai": [
+    "https://publikationen.ub.uni-frankfurt.de/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "wuerzburg",
+   "name": "Würzburg",
+   "repo": "OPUS Würzburg",
+   "country": "DE",
+   "software": "opus",
+   "nobel": 14,
+   "oai": [
+    "https://opus.bibliothek.uni-wuerzburg.de/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "theses_fr",
+   "name": "France (all doctoral theses)",
+   "repo": "theses.fr",
+   "country": "FR",
+   "software": "custom",
+   "nobel": 51,
+   "oai": [
+    "https://theses.fr/oai",
+    "https://theses.fr/api/oai"
+   ],
+   "rest": [
+    "https://theses.fr/api/v1/theses/recherche"
+   ]
+  },
+  {
+   "id": "hal",
+   "name": "France (HAL open archive)",
+   "repo": "HAL",
+   "country": "FR",
+   "software": "custom",
+   "nobel": 51,
+   "oai": [
+    "https://api.archives-ouvertes.fr/oai/hal",
+    "https://hal.science/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "uzh",
+   "name": "Zurich (UZH)",
+   "repo": "ZORA",
+   "country": "CH",
+   "software": "eprints",
+   "nobel": 21,
+   "oai": [
+    "https://www.zora.uzh.ch/cgi/oai2"
+   ],
+   "rest": []
+  },
+  {
+   "id": "basel",
+   "name": "Basel",
+   "repo": "edoc",
+   "country": "CH",
+   "software": "custom",
+   "nobel": 10,
+   "oai": [
+    "https://edoc.unibas.ch/cgi/oai2"
+   ],
+   "rest": []
+  },
+  {
+   "id": "leiden",
+   "name": "Leiden",
+   "repo": "Scholarly Publications",
+   "country": "NL",
+   "software": "custom",
+   "nobel": 16,
+   "oai": [
+    "https://scholarlypublications.universiteitleiden.nl/oai2"
+   ],
+   "rest": []
+  },
+  {
+   "id": "utrecht",
+   "name": "Utrecht",
+   "repo": "Utrecht University Repository",
+   "country": "NL",
+   "software": "dspace",
+   "nobel": 12,
+   "oai": [
+    "https://dspace.library.uu.nl/oai/request",
+    "https://dspace.library.uu.nl/server/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "vienna",
+   "name": "Vienna",
+   "repo": "u:theses / PHAIDRA",
+   "country": "AT",
+   "software": "custom",
+   "nobel": 15,
+   "oai": [
+    "https://utheses.univie.ac.at/oai",
+    "https://phaidra.univie.ac.at/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "uppsala",
+   "name": "Uppsala",
+   "repo": "DiVA",
+   "country": "SE",
+   "software": "diva",
+   "nobel": 15,
+   "oai": [
+    "https://uu.diva-portal.org/dice/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "stockholm",
+   "name": "Stockholm",
+   "repo": "DiVA",
+   "country": "SE",
+   "software": "diva",
+   "nobel": 10,
+   "oai": [
+    "https://su.diva-portal.org/dice/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "karolinska",
+   "name": "Karolinska Institutet",
+   "repo": "KI Open Archive",
+   "country": "SE",
+   "software": "dspace",
+   "nobel": 9,
+   "oai": [
+    "https://openarchive.ki.se/server/oai/request",
+    "https://openarchive.ki.se/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "lund",
+   "name": "Lund",
+   "repo": "LUP",
+   "country": "SE",
+   "software": "custom",
+   "nobel": 8,
+   "oai": [
+    "https://lup.lub.lu.se/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "copenhagen",
+   "name": "Copenhagen",
+   "repo": "CURIS",
+   "country": "DK",
+   "software": "pure",
+   "nobel": 13,
+   "oai": [
+    "https://curis.ku.dk/ws/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "bologna",
+   "name": "Bologna",
+   "repo": "AMS Dottorato",
+   "country": "IT",
+   "software": "eprints",
+   "nobel": 8,
+   "oai": [
+    "https://amsdottorato.unibo.it/cgi/oai2"
+   ],
+   "rest": []
+  },
+  {
+   "id": "mcgill",
+   "name": "McGill",
+   "repo": "eScholarship@McGill",
+   "country": "CA",
+   "software": "dspace",
+   "nobel": 12,
+   "oai": [
+    "https://escholarship.mcgill.ca/server/oai/request",
+    "https://escholarship.mcgill.ca/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "snu",
+   "name": "Seoul National University",
+   "repo": "S-Space",
+   "country": "KR",
+   "software": "dspace",
+   "nobel": 0,
+   "oai": [
+    "https://s-space.snu.ac.kr/oai/request"
+   ],
+   "rest": []
+  },
+  {
+   "id": "osaka",
+   "name": "Osaka University",
+   "repo": "OUKA",
+   "country": "JP",
+   "software": "custom",
+   "nobel": 4,
+   "oai": [
+    "https://ir.library.osaka-u.ac.jp/oai"
+   ],
+   "rest": []
+  },
+  {
+   "id": "iisc",
+   "name": "Indian Institute of Science",
+   "repo": "IISc Theses",
+   "country": "IN",
+   "software": "eprints",
+   "nobel": 1,
+   "oai": [
+    "https://etd.iisc.ac.in/cgi/oai2",
+    "https://etd.iisc.ac.in/oai2"
+   ],
+   "rest": []
+  },
+  {
+   "id": "usp",
+   "name": "São Paulo",
+   "repo": "Biblioteca Digital de Teses",
+   "country": "BR",
+   "software": "custom",
+   "nobel": 0,
+   "oai": [
+    "https://www.teses.usp.br/oai/oai2.php",
+    "https://teses.usp.br/oai"
+   ],
+   "rest": []
+  }
+ ]
+}

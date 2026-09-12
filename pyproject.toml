@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thesis-harvester"
+version = "0.1.0"
+description = "Resumable PDF to page-anchored text corpus with optional OCR, GROBID and Drive upload"
+requires-python = ">=3.10"
+dependencies = ["pypdf>=5,<7", "requests>=2.32,<3", "defusedxml>=0.7,<1"]
+
+[project.optional-dependencies]
+tokens = ["tiktoken>=0.7,<1"]
+structured = ["docling>=2.50,<3", "tiktoken>=0.7,<1"]
+parquet = ["pyarrow>=17,<25"]
+
+[project.scripts]
+pdf-corpus = "pdf_text_pipeline.cli:main"
+pdf-profile = "pdf_text_pipeline.profile:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
