@@ -17,3 +17,5 @@ corpus/
 .codebase-memory/
 .test-deps/
 .test-cache/
+
+.model-cache/

@@ -6,9 +6,9 @@ import re
 import unicodedata
 
 
-def read_sidecar(source):
+def read_sidecar(source, supplied=None):
     path = Path(str(source) + ".metadata.json")
-    row = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    row = supplied if supplied is not None else (json.loads(path.read_text(encoding="utf-8")) if path.exists() else {})
     if not isinstance(row, dict):
         raise ValueError("Metadata sidecar must be a JSON object")
     # Do not infer permission from open access, institution or the PDF's contents.
@@ -22,6 +22,7 @@ def read_sidecar(source):
             "license_url": row.get("license_url"), "rights": row.get("rights", []),
             "rights_uri": row.get("rights_uri", []),
             "license_evidence": row.get("license_evidence"),
+            "binding_evidence": row.get("binding_evidence"),
             "metadata_sha256": hashlib.sha256(json.dumps(row, sort_keys=True, ensure_ascii=False).encode()).hexdigest()}
 
 

@@ -1,6 +1,6 @@
 # Validation receipt — 2026-09-12
 
-Result: **28 tests discovered; 27 passed; 1 skipped** in the final local run.
+Result: **41 tests discovered; 40 passed; 1 skipped** in the final local run.
 The skipped test requires `pdftotext`, which is not installed on this host.
 During the validation run, no live crawler, Drive upload, GitHub publication or archive recompression was run.
 
@@ -26,12 +26,15 @@ Tested with actual libraries and synthetic PDF fixtures:
 - Licence filtering, metadata-change cache invalidation and near-duplicate text candidates.
 - Read-only profiler inventory/hash counts and synthetic 300-DPI image placement.
 - Timeout termination and output-directory lock exclusion.
+- Manifest/PDF joins, sanitized filenames, size/hash guards, unknown rights, and bound metadata propagation.
+- FTS5 citations, literal query handling, licence/role filters, low-text review gates, duplicate-version and checksum rejection.
+- Direct Docling-worker imports avoid the sibling `profile.py` / stdlib collision; partial review page provenance is checked.
 
 Contract tests, not real model/service quality tests:
 
 - OCRmyPDF command construction, sparse-page routing and successful OCR result ingestion use a mock OCR executable.
 - GROBID TEI hierarchy, references and coordinates use a fixture; no live GROBID service was invoked.
-- Docling bundle serialization uses a mocked worker result; HTML table spans, LaTeX, captions and role serialization use structured fixtures. Docling and its weights were not installed or executed.
+- Docling bundle serialization uses a mocked worker result; HTML table spans, LaTeX, captions and role serialization use structured fixtures. Real Docling 2.126.0 was additionally run on selected thesis pages; see [PILOT_20260912.md](PILOT_20260912.md). These contract tests still do not assess model quality.
 - rclone upload failure/retry/manifest-last/receipt handling uses a mocked subprocess; no real remote ACL or object availability was checked.
 
 Additional checks: Python compilation, CLI help and `zsh -n` for the publication

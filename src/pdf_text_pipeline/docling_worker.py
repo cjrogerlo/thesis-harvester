@@ -3,8 +3,12 @@ import json
 from pathlib import Path
 import sys
 
+# Direct subprocess execution must not shadow stdlib `profile` with our sibling.
+if __package__ in (None, ""):
+    sys.path = [p for p in sys.path if Path(p).resolve() != Path(__file__).parent.resolve()]
 
-def convert(source, output):
+
+def convert(source, output, page_range=None):
     from docling.document_converter import DocumentConverter, PdfFormatOption
     from docling.datamodel.base_models import InputFormat
     from docling.datamodel.pipeline_options import PdfPipelineOptions
@@ -16,7 +20,7 @@ def convert(source, output):
     options.generate_picture_images = True
     options.images_scale = 2.0
     converter = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=options)})
-    result = converter.convert(source)
+    result = converter.convert(source, **({"page_range": page_range} if page_range else {}))
     if str(result.status.value) != "success":
         raise RuntimeError(f"Docling conversion status: {result.status}")
     doc = result.document
@@ -59,4 +63,5 @@ def convert(source, output):
 
 
 if __name__ == "__main__":
-    convert(Path(sys.argv[1]), Path(sys.argv[2]))
+    pages = tuple(map(int, sys.argv[3].split(":"))) if len(sys.argv) > 3 else None
+    convert(Path(sys.argv[1]), Path(sys.argv[2]), pages)

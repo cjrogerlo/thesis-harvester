@@ -43,6 +43,7 @@ def parser():
             q.add_argument("--report", type=Path)
         else:
             q.add_argument("--output", type=Path, required=True)
+            q.add_argument("--bindings", type=Path, help="Verified metadata bindings.sqlite from link")
             q.add_argument("--ocr", choices=("defer", "auto"), default="defer")
             q.add_argument("--language", default="eng")
             q.add_argument("--ocr-timeout", type=positive, default=1800)
@@ -79,6 +80,23 @@ def parser():
     q.add_argument("--report", type=Path, required=True)
     q.add_argument("--profile")
     q.add_argument("--max-pairs", type=positive, default=100000)
+    q = subs.add_parser("index", help="Build a local page-cited FTS5 research index")
+    q.add_argument("--output", type=Path, required=True)
+    q.add_argument("--database", type=Path, required=True)
+    q.add_argument("--include-needs-review", action="store_true")
+    q.add_argument("--profile")
+    q = subs.add_parser("search", help="Return local source excerpts with paper/page citations")
+    q.add_argument("query")
+    q.add_argument("--database", type=Path, required=True)
+    q.add_argument("--limit", type=positive, default=5)
+    q.add_argument("--license")
+    q.add_argument("--role")
+    q.add_argument("--report", type=Path)
+    q = subs.add_parser("link", help="Bind local PDFs to Apollo or explicit-path manifest metadata")
+    q.add_argument("--manifest", type=Path, required=True)
+    q.add_argument("--pdf-root", type=Path, required=True)
+    q.add_argument("--database", type=Path, required=True)
+    q.add_argument("--hash-files", action="store_true")
     q = subs.add_parser("status")
     q.add_argument("--output", type=Path, required=True)
     return p
@@ -152,7 +170,11 @@ def run(args):
                         if time.time() - path.stat().st_mtime < args.settle_seconds:
                             counts["unsettled"] += 1
                             continue
-                        result = store.process(path, config, args.rehash)
+                        supplied = None
+                        if args.bindings:
+                            from .bindings import bound_metadata
+                            supplied = bound_metadata(args.bindings, path)
+                        result = store.process(path, config, args.rehash, supplied_metadata=supplied)
                         counts["cached" if result["cached"] else result["status"]] += 1
                         attempted += int(not result["cached"])
                         event = {"source": str(path), "document_id": result["document_id"],
@@ -182,12 +204,30 @@ def main(argv=None):
     try:
         if args.action == "audit":
             return audit(args)
+        if args.action == "search":
+            from .retrieval import search, render_results
+            result = search(args.database, args.query, args.limit, args.license, args.role)
+            if args.report:
+                args.report.parent.mkdir(parents=True, exist_ok=True)
+                args.report.write_text(render_results(result), encoding="utf-8")
+            emit(result)
+            return 0
+        if args.action == "link":
+            from .bindings import link_manifest
+            result = link_manifest(args.manifest, args.pdf_root, args.database, args.hash_files)
+            emit(result)
+            return int(bool(result["errors"]))
         if args.action == "run":
             return run(args)
         if not (args.output / "state.sqlite").is_file():
             raise ValueError("No existing state.sqlite in --output")
         store = Store(args.output)
         try:
+            if args.action == "index":
+                from .retrieval import build_index
+                with store.lock():
+                    emit(build_index(store, args.database, args.include_needs_review, args.profile))
+                return 0
             if args.action == "status":
                 emit({"jobs": [dict(r) for r in store.db.execute(
                     "SELECT profile,status,count(*) AS count FROM jobs GROUP BY profile,status")],

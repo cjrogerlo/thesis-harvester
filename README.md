@@ -56,6 +56,12 @@ Place `paper.pdf.metadata.json` next to `paper.pdf`, using the schema in [docs/m
 
 Language is preserved from source metadata; missing language is `und`, not a guessed English label. Missing licence is `unknown`; `open` is not substituted for a licence. A changed metadata sidecar produces a new cache profile, so stale rights metadata is not silently reused.
 
+## Bind existing downloads and search locally
+
+`link` joins a stable PDF snapshot to an Apollo download manifest (UUID, filename, size and optional SHA-256). `run --bindings` carries its source/licence evidence into every document and chunk. `index` and `search` provide local BM25 retrieval with physical PDF page citations. A bounded Docling review command compares selected pages against original page images without declaring a whole paper ready.
+
+See [docs/RESEARCH_WORKFLOW.md](docs/RESEARCH_WORKFLOW.md) for the complete commands and [docs/PILOT_20260912.md](docs/PILOT_20260912.md) for the real-paper pilot and observed quality limits.
+
 ## Convert
 
 ```bash

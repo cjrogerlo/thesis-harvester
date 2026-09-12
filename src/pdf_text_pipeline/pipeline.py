@@ -397,10 +397,10 @@ class Store:
             finally:
                 fcntl.flock(stream, fcntl.LOCK_UN)
 
-    def process(self, source, config, rehash=False):
+    def process(self, source, config, rehash=False, supplied_metadata=None):
         source = Path(source).resolve()
         from .metadata import read_sidecar
-        metadata = read_sidecar(source)
+        metadata = read_sidecar(source, supplied_metadata)
         config = replace(config, metadata_fingerprint=metadata["metadata_sha256"])
         before = fingerprint(source)
         row = self.db.execute("SELECT * FROM sources WHERE path=?", (str(source),)).fetchone()
